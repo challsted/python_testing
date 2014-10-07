@@ -1,9 +1,11 @@
+#!/bin/python
+
 from random import randint
 
 board = []
 
-for x in range(5):
-    board.append(["O"] * 5)
+for x in range(10):
+    board.append(["O"] * 10)
 
 def print_board(board):
     for row in board:
@@ -33,7 +35,7 @@ for guess in range(4):
         print "Congratulations! You sunk my battleship!"
         break
     else:
-        if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+        if (guess_row < 0 or guess_row > len(board)) or (guess_col < 0 or guess_col > len(board)):
             print "Oops, that's not even in the ocean."
         elif(board[guess_row][guess_col] == "X"):
             print "You guessed that one already."
